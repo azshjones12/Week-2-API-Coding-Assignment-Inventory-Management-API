@@ -38,7 +38,7 @@ public class CustomerController {
 		return new ResponseEntity<Object>(service.createCustomer(customer), HttpStatus.CREATED);
 	}
 	
-	
+	@RequestMapping(value="/{id}", method=RequestMethod.PUT)
 	public ResponseEntity<Object> updateCustomer(@RequestBody Customer customer, @PathVariable Long id) {
 		try {
 			return new ResponseEntity<Object>(service.updateCustomer(customer, id), HttpStatus.OK);
@@ -47,6 +47,7 @@ public class CustomerController {
 		}
 	}
 	
+	@RequestMapping(value="/{id}", method=RequestMethod.DELETE)
 	public ResponseEntity<Object> deleteCustomer(@PathVariable Long id) {
 		try {
 			service.deleteCustomer(id);

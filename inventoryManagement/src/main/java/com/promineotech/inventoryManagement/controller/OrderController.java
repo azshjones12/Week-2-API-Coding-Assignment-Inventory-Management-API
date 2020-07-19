@@ -31,6 +31,7 @@ public class OrderController {
 		}
 	}
 	
+	@RequestMapping(value="/{orderId}", method=RequestMethod.PUT)
 	public ResponseEntity<Object> updateOrder(@RequestBody Order order, @PathVariable Long orderId) {
 		try {
 			if (order.getStatus().equals(OrderStatus.CANCELED)) {
